@@ -22,6 +22,8 @@ module.exports = {
             uf
         });
 
+        console.log(response.json({ id }));        
+
         return response.json({ id });
     },
 
