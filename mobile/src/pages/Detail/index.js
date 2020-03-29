@@ -15,7 +15,8 @@ export default function Detail() {
 
   const incident = route.params.incident;
   const message = `Olá ${incident.name}, estou entrando em contato pois gostaria de ajudar no caso "${incident.title}" com o valor de ${Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(incident.value)}`;
-  
+  const messageWhatsApp = `Olá *${incident.name}*, estou entrando em contato pois gostaria de ajudar no caso *${incident.title}* com o valor de *${Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(incident.value)}*`;
+
   function navigateBack() {
     navigation.goBack();
   }
@@ -29,7 +30,7 @@ export default function Detail() {
   }
 
   function sendWhatsApp() {
-    Linking.openURL(`whatsapp://send?phone=${incident.whatsapp}&text=${message}`);
+    Linking.openURL(`whatsapp://send?phone=${incident.whatsapp}&text=${messageWhatsApp}`);
   }
 
   return (
