@@ -18,7 +18,8 @@ module.exports = {
                 'ongs.whatsapp',
                 'ongs.city',
                 'ongs.uf'    
-            ]);
+            ])
+            .orderBy('incidents.id', 'desc');
 
         response.header('X-Total-Count', count['count(*)'])
 
@@ -50,7 +51,7 @@ module.exports = {
             .first();
 
         if (incident.ong_id !== ong_id) {
-            return response.status(401).json({ error: 'Operation not permitted.' }) // Nao autorizado
+            return response.status(401).json({ error: 'Operation not permitted.' })
         }
 
         await connection('incidents')
