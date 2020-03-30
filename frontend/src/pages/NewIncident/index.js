@@ -59,7 +59,7 @@ export default function NewIncident() {
         </section>
         <form onSubmit={handleNewIncident}>
           <input 
-            placeholder="Titulo do caso" 
+            placeholder="Título do caso" 
             value={title}
             onChange={e => setTitle(e.target.value)}
           />
